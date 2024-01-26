@@ -8,23 +8,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late int index;
-
-  List listWidget = [
-    Center(
-      child: Text("Home"),
-    ),
-    Center(
-      child: Text("Profile"),
-    ),
-    Center(
-      child: Text("About"),
-    )
-  ];
+  late int buttonNavIndex;
 
   @override
   void initState() {
-    index = 0;
+    buttonNavIndex = 0;
     super.initState();
   }
 
@@ -32,21 +20,30 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Drug BUD App"),
+        centerTitle: false,
+        title: Row(
+          children: [
+            Icon(Icons.compost),
+            SizedBox(
+              width: 5,
+            ),
+            Text("Drug BUD"),
+          ],
+        ),
       ),
-      body: listWidget[index],
+      body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [Text("sapi"), Text("poang")]),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.amber,
-        currentIndex: index,
+        currentIndex: buttonNavIndex,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "profile"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: "jangkrik")
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.help), label: "About")
         ],
         onTap: (value) {
           setState(() {
-            index = value;
+            buttonNavIndex = value;
           });
         },
       ),
