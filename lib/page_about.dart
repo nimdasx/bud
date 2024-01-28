@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 
-class AboutPage extends StatefulWidget {
-  const AboutPage({super.key});
+class AboutPage extends StatelessWidget {
+  //const AboutPage({super.key});
 
-  @override
-  State<AboutPage> createState() => _AboutPageState();
-}
-
-class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("About App"),
+        title: Text(
+          "About App",
+          style: TextStyle(fontSize: 17),
+        ),
       ),
-      body: Placeholder(),
+      body: Container(
+        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Icon(Icons.compost),
+          Text('blw bwlfkjsafas k'),
+        ]),
+      ),
     );
   }
 }

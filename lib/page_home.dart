@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    buttonNavIndex = 0;
+    // buttonNavIndex = 0;
     super.initState();
   }
 
@@ -30,7 +30,10 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               width: 5,
             ),
-            Text("Drug BUD"),
+            Text(
+              "Drug Beyond Use Date",
+              style: TextStyle(fontSize: 17),
+            ),
           ],
         ),
       ),
@@ -42,6 +45,9 @@ class _HomePageState extends State<HomePage> {
             decoration: InputDecoration(
               labelText: 'Search Drug',
               hintText: 'Input drug name here...',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
             ),
           ),
           SizedBox(height: 20),
@@ -50,7 +56,7 @@ class _HomePageState extends State<HomePage> {
               String telo = _drugName.text;
               print('Tombol Submit ditekan! isinya $telo');
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ResultPage()));
+                  MaterialPageRoute(builder: (context) => ResultPage(telo)));
             },
             child: Text('Search'),
           ),
@@ -58,15 +64,16 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.amber,
-        currentIndex: buttonNavIndex,
+        // currentIndex: buttonNavIndex,
+        currentIndex: 0,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.help), label: "About")
         ],
         onTap: (value) {
-          setState(() {
-            buttonNavIndex = value;
-          });
+          // setState(() {
+          //   buttonNavIndex = value;
+          // });
           if (value == 1) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => AboutPage()));
