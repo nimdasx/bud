@@ -1,4 +1,6 @@
+import 'package:bud/page_about.dart';
 import 'package:flutter/material.dart';
+import './page_result.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,6 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late int buttonNavIndex;
+  TextEditingController _drugName = TextEditingController();
 
   @override
   void initState() {
@@ -33,9 +36,25 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Text("sapi"), Text("poang")]),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          TextField(
+            controller: _drugName,
+            decoration: InputDecoration(
+              labelText: 'Search Drug',
+              hintText: 'Input drug name here...',
+            ),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              String telo = _drugName.text;
+              print('Tombol Submit ditekan! isinya $telo');
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ResultPage()));
+            },
+            child: Text('Search'),
+          ),
+        ]),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.amber,
@@ -48,6 +67,10 @@ class _HomePageState extends State<HomePage> {
           setState(() {
             buttonNavIndex = value;
           });
+          if (value == 1) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => AboutPage()));
+          }
         },
       ),
     );
