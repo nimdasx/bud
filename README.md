@@ -1,3 +1,3 @@
 # bud
 
-A new Flutter project.
+Beyond Use Date Mobile App
