@@ -31,9 +31,12 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [Text("sapi"), Text("poang")]),
+      body: Container(
+        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [Text("sapi"), Text("poang")]),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.amber,
         currentIndex: buttonNavIndex,
