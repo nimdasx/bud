@@ -38,28 +38,35 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          TextField(
-            controller: _drugName,
-            decoration: InputDecoration(
-              labelText: 'Search Drug',
-              hintText: 'Input drug name here...',
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        child: ListView(children: [
+          Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            Image(
+              image: AssetImage('assets/prescription.png'),
+              width: 150,
+            ),
+            SizedBox(height: 20),
+            TextField(
+              controller: _drugName,
+              decoration: InputDecoration(
+                labelText: 'Search Drug',
+                hintText: 'Input drug name here...',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
               ),
             ),
-          ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              String telo = _drugName.text;
-              print('Tombol Submit ditekan! isinya $telo');
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ResultPage(telo)));
-            },
-            child: Text('Search'),
-          ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                String telo = _drugName.text;
+                print('Tombol Submit ditekan! isinya $telo');
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ResultPage(telo)));
+              },
+              child: Text('Search'),
+            ),
+          ]),
         ]),
       ),
       bottomNavigationBar: BottomNavigationBar(

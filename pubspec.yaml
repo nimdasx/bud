@@ -1,5 +1,5 @@
 name: bud
-description: A new Flutter project.
+description: Beyond Use Date Drug
 
 publish_to: 'none'
 
@@ -23,3 +23,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/prescription.png
