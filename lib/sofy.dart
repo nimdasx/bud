@@ -24,14 +24,20 @@ class Sofy {
     }
   }
 
-  static Future getDrugList() async {
+  static Future getDrugList(String searchParam) async {
     final String url = await readKonfig('url');
     final String finalUrl = '$url/sf_drug/get_list';
     try {
       Uri xurl = Uri.parse(finalUrl);
+
+      // Menambahkan query parameter search_param jika tidak null atau kosong
+      if (searchParam.isNotEmpty) {
+        xurl = xurl.replace(queryParameters: {'search_param': searchParam});
+      }
+
       final response = await http.get(xurl);
       if (response.statusCode == 200) {
-        //print(json.decode(response.body));
+        print(json.decode(response.body));
         List<dynamic> dataList = json.decode(response.body);
         // for (var data in dataList) {
         //   print(

@@ -16,7 +16,7 @@ class _ResultPageState extends State<ResultPage> {
 
   Future<void> load() async {
     try {
-      List<dynamic> data = await Sofy.getDrugList();
+      List<dynamic> data = await Sofy.getDrugList(widget.kataKunci);
       setState(() {
         drugList = data;
       });
