@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ResultDetailPage extends StatelessWidget {
   //const ResultDetailPage({super.key});
-  final String drugId;
+  final int drugId;
   ResultDetailPage(this.drugId);
 
   @override

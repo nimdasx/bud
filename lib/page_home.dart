@@ -1,4 +1,4 @@
-import 'package:bud/sofy.dart';
+//import 'package:bud/sofy.dart';
 import 'package:bud/page_about.dart';
 import 'package:flutter/material.dart';
 import './page_result.dart';
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(builder: (context) => ResultPage(telo)));
                 //Sofy.getApiKey();
                 //Sofy.gundul();
-                Sofy.getDrug();
+                //Sofy.getDrug();
               },
               child: Text('Search'),
             ),
