@@ -13,18 +13,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late int buttonNavIndex;
   TextEditingController _drugName = TextEditingController();
-  String apiKey = "";
-
-  load() async {
-    apiKey = await Sofy.readKonfig('api_key');
-    print(apiKey);
-  }
+  //String apiKey = "";
 
   @override
   void initState() {
     // buttonNavIndex = 0;
     super.initState();
-    load();
+    //apiKey = await Sofy.getApiKey();
   }
 
   @override
@@ -71,6 +66,9 @@ class _HomePageState extends State<HomePage> {
                 print('Tombol Submit ditekan! isinya $telo');
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ResultPage(telo)));
+                //Sofy.getApiKey();
+                //Sofy.gundul();
+                Sofy.getDrug();
               },
               child: Text('Search'),
             ),
