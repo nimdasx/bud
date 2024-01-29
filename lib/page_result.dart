@@ -5,10 +5,10 @@ class ResultPage extends StatelessWidget {
   //const ResultPage({super.key});
   final String kataKunci;
   ResultPage(this.kataKunci);
-  String drugId = '';
 
   @override
   Widget build(BuildContext context) {
+    String drugId;
     return Scaffold(
       appBar: AppBar(
         title: Text(
