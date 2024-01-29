@@ -56,14 +56,16 @@ class Sofy {
     }
   }
 
-  static Future getDrug() async {
+  static Future getDrug(int drugId) async {
     final String url = await readKonfig('url');
-    final String finalUrl = '$url/sf_drug/get';
+    final String finalUrl = '$url/sf_drug/get/$drugId';
     try {
       Uri xurl = Uri.parse(finalUrl);
       final response = await http.get(xurl);
       if (response.statusCode == 200) {
         print(json.decode(response.body));
+        Map<String, dynamic> jsonData = json.decode(response.body);
+        return jsonData;
       } else {
         print('Gagal mengambil data. Status code: ${response.statusCode}');
         print('Response: ${response.body}');

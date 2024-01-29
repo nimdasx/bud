@@ -11,11 +11,11 @@ class ResultDetailPage extends StatefulWidget {
 }
 
 class _ResultDetailPageState extends State<ResultDetailPage> {
-  List<dynamic> drug = [];
+  Map<String, dynamic>? drug;
 
   Future<void> load() async {
     try {
-      List<dynamic> data = await Sofy.getDrug();
+      Map<String, dynamic> data = await Sofy.getDrug(widget.drugId);
       setState(() {
         drug = data;
       });
@@ -35,19 +35,21 @@ class _ResultDetailPageState extends State<ResultDetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Drug Search Result",
+          "Beyond Use Date Information",
           style: TextStyle(fontSize: 17),
         ),
       ),
       body: Container(
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        child: ListView(children: [
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text('Drug ID : ${widget.drugId}'),
-            Text('Drug Name'),
-            Text('Beyond Use Date :')
-          ]),
-        ]),
+        child: drug == null
+            ? Center(child: CircularProgressIndicator())
+            : ListView(children: [
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  // Text('Drug ID : ${widget.drugId}'),
+                  Text('Drug Name : ${drug?['name']}'),
+                  Text('Beyond Use Date :')
+                ]),
+              ]),
       ),
     );
   }
