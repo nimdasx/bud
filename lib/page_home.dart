@@ -1,7 +1,6 @@
-//import 'package:bud/sofy.dart';
 import 'package:bud/page_about.dart';
 import 'package:flutter/material.dart';
-import './page_result.dart';
+import 'package:bud/page_result.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,18 +11,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late int buttonNavIndex;
-  TextEditingController _drugName = TextEditingController();
-  //String apiKey = "";
 
   @override
   void initState() {
     // buttonNavIndex = 0;
     super.initState();
-    //apiKey = await Sofy.getApiKey();
   }
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController drugName = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
@@ -50,7 +47,7 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 20),
             TextField(
-              controller: _drugName,
+              controller: drugName,
               decoration: InputDecoration(
                 labelText: 'Search Drug',
                 hintText: 'Input drug name here...',
@@ -62,13 +59,10 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                String telo = _drugName.text;
-                print('Tombol Submit ditekan! isinya $telo');
+                String telo = drugName.text;
+                //print('Tombol Submit ditekan! isinya $telo');
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ResultPage(telo)));
-                //Sofy.getApiKey();
-                //Sofy.gundul();
-                //Sofy.getDrug();
               },
               child: Text('Search'),
             ),

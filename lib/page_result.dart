@@ -16,21 +16,18 @@ class _ResultPageState extends State<ResultPage> {
 
   Future<void> load() async {
     try {
-      List<dynamic> data = await Sofy.getDrug();
+      List<dynamic> data = await Sofy.getDrugList();
       setState(() {
         drugList = data;
       });
     } catch (error) {
-      // Handle error jika diperlukan
       print('Error: $error');
     }
   }
 
   @override
   void initState() {
-    // buttonNavIndex = 0;
     super.initState();
-    //apiKey = await Sofy.getApiKey();
     load();
   }
 
