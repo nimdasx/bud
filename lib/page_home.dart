@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
               width: 5,
             ),
             Text(
-              "Drug Beyond Use Date",
+              "Drug BUD App",
               style: TextStyle(fontSize: 17),
             ),
           ],
