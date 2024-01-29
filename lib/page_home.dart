@@ -1,3 +1,4 @@
+import 'package:bud/sofy.dart';
 import 'package:bud/page_about.dart';
 import 'package:flutter/material.dart';
 import './page_result.dart';
@@ -12,11 +13,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late int buttonNavIndex;
   TextEditingController _drugName = TextEditingController();
+  String apiKey = "";
+
+  load() async {
+    apiKey = await Sofy.readKonfig('api_key');
+    print(apiKey);
+  }
 
   @override
   void initState() {
     // buttonNavIndex = 0;
     super.initState();
+    load();
   }
 
   @override
