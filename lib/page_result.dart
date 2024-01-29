@@ -55,17 +55,22 @@ class _ResultPageState extends State<ResultPage> {
                     height: 20,
                   ),
                   for (var data in drugList)
-                    TextButton(
-                      onPressed: () {
-                        drugId = data['id'];
-                        print('drugId $drugId ditekan!');
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    ResultDetailPage(drugId)));
-                      },
-                      child: Text('${data['name']}'),
+                    Container(
+                      margin: EdgeInsets.all(5),
+                      child: TextButton(
+                        style:
+                            TextButton.styleFrom(backgroundColor: Colors.amber),
+                        onPressed: () {
+                          drugId = data['id'];
+                          print('drugId $drugId ditekan!');
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      ResultDetailPage(drugId)));
+                        },
+                        child: Text('${data['name']}'),
+                      ),
                     ),
                 ]),
               ]),
