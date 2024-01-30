@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class Sofy {
+  static String namaAplikasi = 'BiyudFormer';
+
   static Future<String> readKonfig(String namaVariabel) async {
     try {
       String path = 'assets/config.yaml';

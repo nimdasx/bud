@@ -14,10 +14,10 @@ class FatihApp extends StatelessWidget {
       appBarTheme: AppBarTheme(
         titleTextStyle: TextStyle(
           fontSize: 15,
-          color: Colors.amber,
+          color: Colors.white,
         ),
         foregroundColor: Colors.white,
-        backgroundColor: Colors.black38,
+        backgroundColor: Colors.amber,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(10),

@@ -60,9 +60,7 @@ class _PageHomeState extends State<PageHome> {
             SizedBox(
               width: 5,
             ),
-            Text(
-              "ByudFormer",
-            ),
+            Text(Sofy.namaAplikasi),
           ],
         ),
       ),
@@ -72,34 +70,40 @@ class _PageHomeState extends State<PageHome> {
           vertical: 10,
           horizontal: 20,
         ),
-        child: ListView(children: [
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Image(
-              image: AssetImage('assets/drugs.png'),
-              width: 150,
-            ),
-            SizedBox(height: 20),
-            Text('Drug Beyond Use Date Information'),
-            SizedBox(height: 20),
-            TextField(
-              controller: drugName,
-              decoration: InputDecoration(
-                labelText: 'Search Drug',
-                hintText: 'Input drug name here...',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+        child: ListView(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image(
+                  image: AssetImage('assets/drugs.png'),
+                  width: 150,
                 ),
-              ),
+                SizedBox(height: 20),
+                Text('Drug Beyond Use Date Information'),
+                SizedBox(height: 20),
+                TextField(
+                  controller: drugName,
+                  decoration: InputDecoration(
+                    labelText: 'Search Drug',
+                    hintText: 'Input drug name here...',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    prefixIcon: Icon(Icons.search),
+                  ),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    search();
+                  },
+                  child: Text('Search'),
+                ),
+              ],
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                search();
-              },
-              child: Text('Search'),
-            ),
-          ]),
-        ]),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         //backgroundColor: Colors.amber,
@@ -115,7 +119,11 @@ class _PageHomeState extends State<PageHome> {
           // });
           if (value == 1) {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => PageAbout()));
+              context,
+              MaterialPageRoute(
+                builder: (context) => PageAbout(),
+              ),
+            );
           }
         },
       ),

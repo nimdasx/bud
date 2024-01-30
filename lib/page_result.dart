@@ -53,35 +53,42 @@ class _PageResultState extends State<PageResult> {
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: drugList.isEmpty
             ? Center(child: CircularProgressIndicator())
-            : ListView(children: [
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text(
-                    'Search Key',
-                    style: TextStyle(fontSize: 10),
-                  ),
-                  Text(widget.kataKunci),
-                  Divider(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  for (var data in drugList)
-                    Container(
-                      margin: EdgeInsets.all(5),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          drugId = data['id'];
-                          //print('drugId $drugId ditekan!');
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      PageResultDetail(drugId)));
-                        },
-                        child: Text('${data['name']}'),
+            : ListView(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Search Key',
+                        style: TextStyle(fontSize: 10),
                       ),
-                    ),
-                ]),
-              ]),
+                      Text(widget.kataKunci),
+                      Divider(),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      for (var data in drugList)
+                        Container(
+                          margin: EdgeInsets.all(5),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              drugId = data['id'];
+                              //print('drugId $drugId ditekan!');
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      PageResultDetail(drugId),
+                                ),
+                              );
+                            },
+                            child: Text('${data['name']}'),
+                          ),
+                        ),
+                    ],
+                  ),
+                ],
+              ),
       ),
     );
   }
