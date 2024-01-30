@@ -1,31 +1,29 @@
-# bud
+# BUD
 Drug Beyond Use Date Mobile App
 
-## build
-```
-flutter build apk --release  
-```
-
-## ganti logo
+## Ganti Logo
 edit pubspec.yaml  
 ```
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
 ```
-edit flutter_launcher_icons.yaml
+dan edit flutter_launcher_icons.yaml  
+
+eksekusi ganti logo
 ```
 flutter pub get  
 flutter pub run flutter_launcher_icons  
 ```
 
-## rename
+## Rename
 ```
 flutter pub global activate rename  
 flutter pub global run rename setAppName --value "BiyudFormer"  
 flutter pub global run rename setBundleId --value "id.web.sofy.biyudformer"  
 ```
 
-## sign 
+## Sign 
+create keystore
 ```
 keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA \
         -keysize 2048 -validity 10000 -alias upload
@@ -65,10 +63,11 @@ find buildTypes block, replace with this
            signingConfig signingConfigs.release
        }
    }
-
 ```
 
+## Build
 ```
 flutter clean
+flutter build apk --release 
 flutter build appbundle --release
 ```
