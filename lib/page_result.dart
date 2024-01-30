@@ -13,6 +13,7 @@ class PageResult extends StatefulWidget {
 
 class _PageResultState extends State<PageResult> {
   var drugList = [];
+  TextEditingController tecDrugName = TextEditingController();
 
   Future load() async {
     try {
@@ -20,6 +21,20 @@ class _PageResultState extends State<PageResult> {
       var data = xRespone['data'];
       setState(() {
         drugList = data;
+      });
+      tecDrugName.text = widget.kataKunci;
+    } catch (error) {
+      print('Error: $error');
+    }
+  }
+
+  Future gundul() async {
+    //print('betiga');
+    try {
+      var xResponse = await Sofy.getDrugList(tecDrugName.text);
+      var xData = xResponse['data'];
+      setState(() {
+        drugList = xData;
       });
     } catch (error) {
       print('Error: $error');
@@ -59,17 +74,40 @@ class _PageResultState extends State<PageResult> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Search Key',
-                        style: TextStyle(fontSize: 10),
+                        'Search Drug',
+                        //style: TextStyle(fontSize: 10),
                       ),
-                      Text(widget.kataKunci),
-                      Divider(),
-                      SizedBox(
-                        height: 10,
+                      SizedBox(height: 10),
+                      Container(
+                        //padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(244, 243, 243, 1),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            prefixIcon: Icon(
+                              Icons.search,
+                              color: Colors.black87,
+                            ),
+                            hintText: "Input drug name",
+                            hintStyle: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 15,
+                            ),
+                          ),
+                          controller: tecDrugName,
+                          onChanged: (value) {
+                            gundul();
+                          },
+                        ),
                       ),
+                      //Divider(),
+                      SizedBox(height: 10),
                       for (var data in drugList)
                         Container(
-                          margin: EdgeInsets.all(5),
+                          margin: EdgeInsets.only(bottom: 5),
                           child: ElevatedButton(
                             onPressed: () {
                               drugId = data['id'];

@@ -26,6 +26,7 @@ class PageAbout extends StatelessWidget {
             Row(
               children: [
                 Icon(Icons.compost),
+                SizedBox(width: 5),
                 Text(Sofy.namaAplikasi),
               ],
             ),

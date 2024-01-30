@@ -14,6 +14,11 @@ class _PageHomeState extends State<PageHome> {
   late int buttonNavIndex;
   TextEditingController drugName = TextEditingController();
 
+  pacul() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => PageResult('')));
+  }
+
   search() {
     Sofy.getDrugList(drugName.text).then((value) {
       var xDrugList = value['data'];
@@ -81,24 +86,45 @@ class _PageHomeState extends State<PageHome> {
                 ),
                 SizedBox(height: 20),
                 Text('Drug Beyond Use Date Information'),
-                SizedBox(height: 20),
-                TextField(
-                  controller: drugName,
-                  decoration: InputDecoration(
-                    labelText: 'Search Drug',
-                    hintText: 'Input drug name here...',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                SizedBox(height: 10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(244, 243, 243, 1),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: TextField(
+                    controller: drugName,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.black87,
+                      ),
+                      hintText: "Input drug name",
+                      hintStyle: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 15,
+                      ),
                     ),
-                    prefixIcon: Icon(Icons.search),
                   ),
                 ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    search();
-                  },
-                  child: Text('Search'),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        search();
+                      },
+                      child: Text('Search'),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        pacul();
+                      },
+                      child: Text('Drug List'),
+                    ),
+                  ],
                 ),
               ],
             ),
