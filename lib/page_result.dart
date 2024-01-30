@@ -55,9 +55,14 @@ class _PageResultState extends State<PageResult> {
             ? Center(child: CircularProgressIndicator())
             : ListView(children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text('Search : ${widget.kataKunci}'),
+                  Text(
+                    'Search Key',
+                    style: TextStyle(fontSize: 10),
+                  ),
+                  Text(widget.kataKunci),
+                  Divider(),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   for (var data in drugList)
                     Container(

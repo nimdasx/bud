@@ -19,6 +19,7 @@ class _PageResultDetailState extends State<PageResultDetail> {
       var data = xRespone['data'];
       setState(() {
         drug = data;
+        print(drug);
       });
     } catch (error) {
       print('Error: $error');
@@ -38,12 +39,8 @@ class _PageResultDetailState extends State<PageResultDetail> {
         title: Row(
           children: [
             Icon(Icons.compost),
-            SizedBox(
-              width: 5,
-            ),
-            Text(
-              "Drug BUD Information",
-            ),
+            SizedBox(width: 5),
+            Text("Drug BUD Information"),
           ],
         ),
       ),
@@ -54,12 +51,61 @@ class _PageResultDetailState extends State<PageResultDetail> {
             : ListView(children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   //Text('Drug ID : ${widget.drugId}'),
-                  Text('Drug Name : ${drug['name']}'),
-                  Text('Beyond Use Date :'),
+                  xColumn('Drug Name', drug['name']),
+                  xColumn('Drug Concentration', drug['drug_concentration']),
+                  xColumn('Descriptoin/Source', drug['description']),
+                  xColumn('Category', drug['sf_catdrug_name']),
+                  Divider(),
+                  Text(
+                    'Beyond Use Date Information',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  SizedBox(height: 10),
                   for (var bud in drug['sf_drug_bud_list'])
-                    Text('X : ${bud['sentence']}'),
+                    Container(
+                      margin: EdgeInsets.only(
+                        bottom: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: Colors.amber,
+                      ),
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        bud['sentence'],
+                        style: TextStyle(
+                          color: Colors.black54,
+                        ),
+                      ),
+                    )
                 ]),
               ]),
+      ),
+    );
+  }
+
+  Column xColumn(String xJudul, String xValue) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          xJudul,
+          style: TextStyle(
+            fontSize: 10,
+            // fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(xValue),
+        SizedBox(height: 5),
+      ],
+    );
+  }
+
+  Text textJudul(String judul) {
+    return Text(
+      judul,
+      style: TextStyle(
+        fontSize: 11,
       ),
     );
   }
