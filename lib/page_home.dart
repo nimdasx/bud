@@ -54,7 +54,6 @@ class _PageHomeState extends State<PageHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: false,
         title: Row(
           children: [
             Icon(Icons.compost),
@@ -62,20 +61,25 @@ class _PageHomeState extends State<PageHome> {
               width: 5,
             ),
             Text(
-              "Drug BUD App",
-              style: TextStyle(fontSize: 17),
+              "ByudFormer",
             ),
           ],
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        //color: Colors.black26,
+        padding: EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 20,
+        ),
         child: ListView(children: [
-          Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Image(
               image: AssetImage('assets/drugs.png'),
               width: 150,
             ),
+            SizedBox(height: 20),
+            Text('Drug Beyond Use Date Information'),
             SizedBox(height: 20),
             TextField(
               controller: drugName,

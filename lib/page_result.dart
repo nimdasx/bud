@@ -37,9 +37,16 @@ class _PageResultState extends State<PageResult> {
     int drugId;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Drug Search Result",
-          style: TextStyle(fontSize: 17),
+        title: Row(
+          children: [
+            Icon(Icons.compost),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              "Drug List",
+            ),
+          ],
         ),
       ),
       body: Container(
@@ -55,7 +62,7 @@ class _PageResultState extends State<PageResult> {
                   for (var data in drugList)
                     Container(
                       margin: EdgeInsets.all(5),
-                      child: TextButton(
+                      child: ElevatedButton(
                         onPressed: () {
                           drugId = data['id'];
                           //print('drugId $drugId ditekan!');

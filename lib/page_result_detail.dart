@@ -35,9 +35,16 @@ class _PageResultDetailState extends State<PageResultDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Beyond Use Date Information",
-          style: TextStyle(fontSize: 17),
+        title: Row(
+          children: [
+            Icon(Icons.compost),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              "Drug BUD Information",
+            ),
+          ],
         ),
       ),
       body: Container(
@@ -46,7 +53,7 @@ class _PageResultDetailState extends State<PageResultDetail> {
             ? Center(child: CircularProgressIndicator())
             : ListView(children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text('Drug ID : ${widget.drugId}'),
+                  //Text('Drug ID : ${widget.drugId}'),
                   Text('Drug Name : ${drug['name']}'),
                   Text('Beyond Use Date :'),
                   for (var bud in drug['sf_drug_bud_list'])

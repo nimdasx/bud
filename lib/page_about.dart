@@ -9,7 +9,6 @@ class PageAbout extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "About App",
-          style: TextStyle(fontSize: 17),
         ),
       ),
       body: Container(
@@ -20,7 +19,7 @@ class PageAbout extends StatelessWidget {
             height: 20,
           ),
           Text(
-              'Drug BUD App is a cutting-edge mobile application tailored specifically for hospital pharmacists, empowering them to efficiently monitor and manage medications mixed with solvents. Developed by pharmaceutical experts, this application is designed to streamline medication processes within the hospital environment'),
+              'BUDInformer is a cutting-edge mobile application tailored specifically for hospital pharmacists, empowering them to efficiently monitor and manage medications mixed with solvents. Developed by pharmaceutical experts, this application is designed to streamline medication processes within the hospital environment'),
           SizedBox(height: 20),
           Text('If you have any questions, please email me at shofia@gmail.com')
         ]),
