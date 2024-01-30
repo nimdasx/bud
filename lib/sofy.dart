@@ -62,7 +62,7 @@ class Sofy {
       final response = await http.get(xurl);
       if (response.statusCode == 200) {
         var sapi = json.decode(response.body);
-        print(sapi['data']);
+        //print(sapi['data']);
         return sapi;
       } else {
         print('Gagal mengambil data. Status code: ${response.statusCode}');

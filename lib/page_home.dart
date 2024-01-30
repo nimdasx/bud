@@ -1,4 +1,5 @@
 import 'package:bud/page_about.dart';
+import 'package:bud/sofy.dart';
 import 'package:flutter/material.dart';
 import 'package:bud/page_result.dart';
 
@@ -11,6 +12,37 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late int buttonNavIndex;
+  TextEditingController drugName = TextEditingController();
+
+  search() {
+    Sofy.getDrugList(drugName.text).then((value) {
+      var xDrugList = value['data'];
+      if (xDrugList == null) {
+        //print("kosong woi");
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Drug not Found'),
+              content: Text(
+                  'The drug you searched (${drugName.text}) for was not found.'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      } else {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ResultPage(drugName.text)));
+      }
+    });
+  }
 
   @override
   void initState() {
@@ -20,7 +52,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController drugName = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
@@ -59,10 +90,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                String telo = drugName.text;
-                //print('Tombol Submit ditekan! isinya $telo');
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ResultPage(telo)));
+                search();
               },
               child: Text('Search'),
             ),
