@@ -18,6 +18,12 @@ class _ResultDetailPageState extends State<ResultDetailPage> {
       Map<String, dynamic> data = await Sofy.getDrug(widget.drugId);
       setState(() {
         drug = data;
+        // print(drug?['sf_drug_bud_list']);
+        // for (var bud in drug?['sf_drug_bud_list']) {
+        //   print(
+        //       'ID: ${bud['id']}, Name: ${bud['sf_solvent_id']}, Description: ${bud['sentence']}');
+        //   print(bud['name']);
+        // }
       });
     } catch (error) {
       print('Error: $error');
@@ -45,9 +51,11 @@ class _ResultDetailPageState extends State<ResultDetailPage> {
             ? Center(child: CircularProgressIndicator())
             : ListView(children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  // Text('Drug ID : ${widget.drugId}'),
+                  Text('Drug ID : ${widget.drugId}'),
                   Text('Drug Name : ${drug?['name']}'),
-                  Text('Beyond Use Date :')
+                  Text('Beyond Use Date :'),
+                  for (var bud in drug?['sf_drug_bud_list'])
+                    Text('X : ${bud['sentence']}'),
                 ]),
               ]),
       ),

@@ -37,7 +37,7 @@ class Sofy {
 
       final response = await http.get(xurl);
       if (response.statusCode == 200) {
-        print(json.decode(response.body));
+        //print(json.decode(response.body));
         List<dynamic> dataList = json.decode(response.body);
         // for (var data in dataList) {
         //   print(
@@ -63,7 +63,7 @@ class Sofy {
       Uri xurl = Uri.parse(finalUrl);
       final response = await http.get(xurl);
       if (response.statusCode == 200) {
-        print(json.decode(response.body));
+        //print(json.decode(response.body));
         Map<String, dynamic> jsonData = json.decode(response.body);
         return jsonData;
       } else {

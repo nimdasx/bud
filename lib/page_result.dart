@@ -59,7 +59,7 @@ class _ResultPageState extends State<ResultPage> {
                             TextButton.styleFrom(backgroundColor: Colors.amber),
                         onPressed: () {
                           drugId = data['id'];
-                          print('drugId $drugId ditekan!');
+                          //print('drugId $drugId ditekan!');
                           Navigator.push(
                               context,
                               MaterialPageRoute(
