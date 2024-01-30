@@ -12,11 +12,12 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
-  List<dynamic> drugList = [];
+  var drugList = [];
 
-  Future<void> load() async {
+  Future load() async {
     try {
-      List<dynamic> data = await Sofy.getDrugList(widget.kataKunci);
+      var xRespone = await Sofy.getDrugList(widget.kataKunci);
+      var data = xRespone['data'];
       setState(() {
         drugList = data;
       });

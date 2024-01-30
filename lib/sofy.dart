@@ -37,20 +37,13 @@ class Sofy {
 
       final response = await http.get(xurl);
       if (response.statusCode == 200) {
-        print(json.decode(response.body));
-        var hasile = json.decode(response.body);
-        if (hasile['error'] != null) {
-          print(hasile);
-          print('EERRORRRR');
-        }
-        List<dynamic> dataList = json.decode(response.body);
-        // for (var data in dataList) {
+        var sapi = json.decode(response.body);
+        // var data = sapi['data'];
+        // for (var x in data) {
         //   print(
-        //       'ID: ${data['id']}, Name: ${data['name']}, Description: ${data['description']}');
-        //   print(data['name']);
+        //       'id: ${x['id']}, name: ${x['name']}, description: ${x['description']}');
         // }
-        return dataList;
-        //return json.decode(response.body);
+        return sapi;
       } else {
         print('Gagal mengambil data. Status code: ${response.statusCode}');
         print('Response: ${response.body}');
@@ -68,9 +61,9 @@ class Sofy {
       Uri xurl = Uri.parse(finalUrl);
       final response = await http.get(xurl);
       if (response.statusCode == 200) {
-        //print(json.decode(response.body));
-        Map<String, dynamic> jsonData = json.decode(response.body);
-        return jsonData;
+        var sapi = json.decode(response.body);
+        print(sapi['data']);
+        return sapi;
       } else {
         print('Gagal mengambil data. Status code: ${response.statusCode}');
         print('Response: ${response.body}');
