@@ -37,7 +37,12 @@ class Sofy {
 
       final response = await http.get(xurl);
       if (response.statusCode == 200) {
-        //print(json.decode(response.body));
+        print(json.decode(response.body));
+        var hasile = json.decode(response.body);
+        if (hasile['error'] != null) {
+          print(hasile);
+          print('EERRORRRR');
+        }
         List<dynamic> dataList = json.decode(response.body);
         // for (var data in dataList) {
         //   print(
