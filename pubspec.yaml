@@ -28,4 +28,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/prescription.png
+    - assets/drugs.png
     - assets/config.yaml

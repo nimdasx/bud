@@ -73,7 +73,7 @@ class _PageHomeState extends State<PageHome> {
         child: ListView(children: [
           Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             Image(
-              image: AssetImage('assets/prescription.png'),
+              image: AssetImage('assets/drugs.png'),
               width: 150,
             ),
             SizedBox(height: 20),
@@ -98,7 +98,7 @@ class _PageHomeState extends State<PageHome> {
         ]),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.amber,
+        //backgroundColor: Colors.amber,
         // currentIndex: buttonNavIndex,
         currentIndex: 0,
         items: [

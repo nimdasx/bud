@@ -56,8 +56,6 @@ class _PageResultState extends State<PageResult> {
                     Container(
                       margin: EdgeInsets.all(5),
                       child: TextButton(
-                        style:
-                            TextButton.styleFrom(backgroundColor: Colors.amber),
                         onPressed: () {
                           drugId = data['id'];
                           //print('drugId $drugId ditekan!');
