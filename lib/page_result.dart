@@ -2,16 +2,16 @@ import 'package:bud/page_result_detail.dart';
 import 'package:bud/sofy.dart';
 import 'package:flutter/material.dart';
 
-class ResultPage extends StatefulWidget {
+class PageResult extends StatefulWidget {
   //const ResultPage({super.key});
   final String kataKunci;
-  ResultPage(this.kataKunci);
+  PageResult(this.kataKunci);
 
   @override
-  State<ResultPage> createState() => _ResultPageState();
+  State<PageResult> createState() => _PageResultState();
 }
 
-class _ResultPageState extends State<ResultPage> {
+class _PageResultState extends State<PageResult> {
   var drugList = [];
 
   Future load() async {
@@ -65,7 +65,7 @@ class _ResultPageState extends State<ResultPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      ResultDetailPage(drugId)));
+                                      PageResultDetail(drugId)));
                         },
                         child: Text('${data['name']}'),
                       ),

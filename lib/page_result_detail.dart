@@ -1,16 +1,16 @@
 import 'package:bud/sofy.dart';
 import 'package:flutter/material.dart';
 
-class ResultDetailPage extends StatefulWidget {
+class PageResultDetail extends StatefulWidget {
   //const ResultDetailPage({super.key});
   final int drugId;
-  ResultDetailPage(this.drugId);
+  PageResultDetail(this.drugId);
 
   @override
-  State<ResultDetailPage> createState() => _ResultDetailPageState();
+  State<PageResultDetail> createState() => _PageResultDetailState();
 }
 
-class _ResultDetailPageState extends State<ResultDetailPage> {
+class _PageResultDetailState extends State<PageResultDetail> {
   var drug = {};
 
   Future<void> load() async {

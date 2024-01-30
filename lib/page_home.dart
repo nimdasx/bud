@@ -3,14 +3,14 @@ import 'package:bud/sofy.dart';
 import 'package:flutter/material.dart';
 import 'package:bud/page_result.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class PageHome extends StatefulWidget {
+  const PageHome({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<PageHome> createState() => _PageHomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _PageHomeState extends State<PageHome> {
   late int buttonNavIndex;
   TextEditingController drugName = TextEditingController();
 
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         );
       } else {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => ResultPage(drugName.text)));
+            MaterialPageRoute(builder: (context) => PageResult(drugName.text)));
       }
     });
   }
@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> {
           // });
           if (value == 1) {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => AboutPage()));
+                context, MaterialPageRoute(builder: (context) => PageAbout()));
           }
         },
       ),
