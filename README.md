@@ -2,17 +2,45 @@
 Drug Beyond Use Date Mobile App
 
 ## build
+```
 flutter build apk --release  
+```
 
 ## ganti logo
 edit pubspec.yaml  
+```
+dev_dependencies:
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/app_logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/app_logo.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/app_logo.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/app_logo.png"
+```
+```
 flutter pub get  
 flutter pub run flutter_launcher_icons  
+```
 
 ## rename
+```
 flutter pub global activate rename  
 flutter pub global run rename setAppName --value "BiyudFormer"  
 flutter pub global run rename setBundleId --value "id.web.sofy.biyudformer"  
+```
 
 ## sign 
 ```
