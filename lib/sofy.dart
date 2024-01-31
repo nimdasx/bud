@@ -1,3 +1,4 @@
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:yaml/yaml.dart';
 import 'package:flutter/services.dart' show PlatformException, rootBundle;
 import 'package:http/http.dart' as http;
@@ -5,6 +6,11 @@ import 'dart:convert';
 
 class Sofy {
   static String namaAplikasi = 'BiyudFormer';
+
+  static Future<String> getPackageInfoVersion() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    return packageInfo.version;
+  }
 
   static Future<String> readKonfig(String namaVariabel) async {
     try {

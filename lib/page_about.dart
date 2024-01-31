@@ -1,8 +1,29 @@
 import 'package:bud/sofy.dart';
 import 'package:flutter/material.dart';
 
-class PageAbout extends StatelessWidget {
+class PageAbout extends StatefulWidget {
   const PageAbout({super.key});
+
+  @override
+  State<PageAbout> createState() => _PageAboutState();
+}
+
+class _PageAboutState extends State<PageAbout> {
+  String xVersion = '';
+
+  Future load() async {
+    var zVersion = await Sofy.getPackageInfoVersion();
+    setState(() {
+      xVersion = zVersion;
+    });
+  }
+
+  @override
+  void initState() {
+    // buttonNavIndex = 0;
+    super.initState();
+    load();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +61,9 @@ class PageAbout extends StatelessWidget {
                 'Developed by pharmaceutical experts, this application is designed to streamline medication processes within the hospital environment'),
             SizedBox(height: 20),
             Text(
-                'If you have any questions, please email me at shofia@gmail.com')
+                'If you have any questions, please email me at shofia@gmail.com'),
+            SizedBox(height: 20),
+            Text('App version $xVersion'),
           ],
         ),
       ),

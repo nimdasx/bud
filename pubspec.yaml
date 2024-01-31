@@ -3,7 +3,7 @@ description: Beyond Use Date Drug
 
 publish_to: 'none'
 
-version: 0.0.2
+version: 0.0.3
 
 environment:
   sdk: ^3.1.1
@@ -16,6 +16,7 @@ dependencies:
   yaml: ^3.1.2
   # odoo_rpc: ^0.5.2
   http: ^1.2.0
+  package_info_plus: ^5.0.1
 
 dev_dependencies:
   # flutter_test:

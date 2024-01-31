@@ -13,6 +13,7 @@ class PageHome extends StatefulWidget {
 class _PageHomeState extends State<PageHome> {
   late int buttonNavIndex;
   TextEditingController drugName = TextEditingController();
+  String xVersion = '';
 
   pacul() {
     Navigator.push(
@@ -57,10 +58,18 @@ class _PageHomeState extends State<PageHome> {
     });
   }
 
+  Future load() async {
+    var zVersion = await Sofy.getPackageInfoVersion();
+    setState(() {
+      xVersion = zVersion;
+    });
+  }
+
   @override
   void initState() {
     // buttonNavIndex = 0;
     super.initState();
+    load();
   }
 
   @override
@@ -93,6 +102,10 @@ class _PageHomeState extends State<PageHome> {
                   width: 150,
                 ),
                 SizedBox(height: 20),
+                Text(
+                  '${Sofy.namaAplikasi} v$xVersion',
+                  style: TextStyle(fontSize: 10),
+                ),
                 Text('Drug Beyond Use Date Information'),
                 SizedBox(height: 10),
                 Container(
