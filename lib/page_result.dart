@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class PageResult extends StatefulWidget {
   //const ResultPage({super.key});
   final String kataKunci;
-  PageResult(this.kataKunci);
+  const PageResult({super.key, required this.kataKunci});
 
   @override
   State<PageResult> createState() => _PageResultState();
@@ -49,7 +49,7 @@ class _PageResultState extends State<PageResult> {
 
   @override
   Widget build(BuildContext context) {
-    int drugId;
+    int xDrugId;
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -110,13 +110,13 @@ class _PageResultState extends State<PageResult> {
                           margin: EdgeInsets.only(bottom: 5),
                           child: ElevatedButton(
                             onPressed: () {
-                              drugId = data['id'];
+                              xDrugId = data['id'];
                               //print('drugId $drugId ditekan!');
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      PageResultDetail(drugId),
+                                      PageResultDetail(drugId: xDrugId),
                                 ),
                               );
                             },

@@ -16,7 +16,11 @@ class _PageHomeState extends State<PageHome> {
 
   pacul() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => PageResult('')));
+      context,
+      MaterialPageRoute(
+        builder: (context) => PageResult(kataKunci: ''),
+      ),
+    );
   }
 
   search() {
@@ -43,8 +47,12 @@ class _PageHomeState extends State<PageHome> {
           },
         );
       } else {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => PageResult(drugName.text)));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PageResult(kataKunci: drugName.text),
+          ),
+        );
       }
     });
   }

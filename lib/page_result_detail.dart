@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class PageResultDetail extends StatefulWidget {
   //const ResultDetailPage({super.key});
   final int drugId;
-  PageResultDetail(this.drugId);
+  const PageResultDetail({super.key, required this.drugId});
 
   @override
   State<PageResultDetail> createState() => _PageResultDetailState();
