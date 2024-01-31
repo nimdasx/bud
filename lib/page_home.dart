@@ -98,7 +98,7 @@ class _PageHomeState extends State<PageHome> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image(
-                  image: AssetImage('assets/drugs.png'),
+                  image: AssetImage('assets/biyud_trans.png'),
                   width: 150,
                 ),
                 SizedBox(height: 20),

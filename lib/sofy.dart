@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class Sofy {
-  static String namaAplikasi = 'BiyudFormer';
+  static String namaAplikasi = 'ByudFormer';
 
   static Future<String> getPackageInfoVersion() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();

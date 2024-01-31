@@ -3,7 +3,7 @@ description: Beyond Use Date Drug
 
 publish_to: 'none'
 
-version: 0.0.3
+version: 0.0.4
 
 environment:
   sdk: ^3.1.1
@@ -28,7 +28,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/prescription.png
-    - assets/drugs.png
+    - assets/biyud_trans.png
     - assets/config.yaml
 
