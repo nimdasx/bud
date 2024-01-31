@@ -52,6 +52,7 @@ class FatihApp extends StatelessWidget {
       // ),
     );
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: PageHome(),
       theme: themeData,
     );

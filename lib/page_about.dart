@@ -41,8 +41,8 @@ class _PageAboutState extends State<PageAbout> {
       ),
       body: Container(
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -55,11 +55,17 @@ class _PageAboutState extends State<PageAbout> {
               height: 20,
             ),
             Text(
-                '${Sofy.namaAplikasi} is a cutting-edge mobile application tailored specifically for hospital pharmacists, empowering them to efficiently monitor and manage medications mixed with solvents.'),
-            SizedBox(height: 20),
+                'The development of technology today plays an important role in fulfilling the needs of extracting information and knowledge. Currently, information about drugs is often accessed through smartphones.'),
+            SizedBox(height: 10),
             Text(
-                'Developed by pharmaceutical experts, this application is designed to streamline medication processes within the hospital environment'),
-            SizedBox(height: 20),
+                'Pharmacists, as providers of drug information, will be greatly assisted by easy access to drug information searches. Many applications about drug information are currently available.'),
+            SizedBox(height: 10),
+            Text(
+                'The rapid development of digital technology should facilitate access to the search for BUD information needed by pharmacists. However, until now, both from references and the Google Play search engine, there are no mobile applications available providing detailed information about BUD.'),
+            SizedBox(height: 10),
+            Text(
+                'Therefore, we hope that the "${Sofy.namaAplikasi}" application will be a solution for pharmacists to find information about BUD drugs. ${Sofy.namaAplikasi} is an application developed through research involving hospital pharmacists in Yogyakarta. The information needs required by pharmacists about BUD information are outlined in "${Sofy.namaAplikasi}".'),
+            SizedBox(height: 10),
             Text(
                 'If you have any questions, please email me at shofia@gmail.com'),
             SizedBox(height: 20),
