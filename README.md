@@ -7,3 +7,5 @@ check https://gist.github.com/nimdasx/72f59282a8dd58db4c3b6da6e14ee247
 - /android/key.properties
 - /android/upload-keystore.jks
 
+## catatan
+flutter pub get
