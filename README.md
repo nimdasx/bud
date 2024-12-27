@@ -14,5 +14,6 @@ sudo ln -sfn /usr/local/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVir
 cd android/
 ./gradlew wrapper --gradle-version=8.7
 flutter clean
+flutter pub get
 flutter run
 ```
