@@ -47,3 +47,5 @@ app.*.map.json
 /assets/config.yaml
 /android/key.properties
 /android/upload-keystore.jks
+
+/android/app/.cxx
