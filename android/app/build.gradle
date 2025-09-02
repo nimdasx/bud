@@ -30,7 +30,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace "com.example.bud"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 35
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -54,7 +54,7 @@ android {
         minSdkVersion flutter.minSdkVersion
 
         // targetSdkVersion flutter.targetSdkVersion
-        targetSdkVersion 34
+        targetSdkVersion 35
 
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

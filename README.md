@@ -16,4 +16,6 @@ cd android/
 flutter clean
 flutter pub get
 flutter run
+flutter build apk
+flutter build appbundle
 ```
